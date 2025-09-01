@@ -8,11 +8,11 @@ import os
 
 def get_db_connection():
     return pymysql.connect(
-        host=os.getenv("MYSQLHOST", "mysql.railway.internal"),
+        host=os.getenv("MYSQLHOST", "gondola.proxy.rlwy.net"),
         user=os.getenv("MYSQLUSER", "root"),
         password=os.getenv("MYSQLPASSWORD", "dWScZcMUcxnLKJQEorVERcUyWsPSQXQX"),
         database=os.getenv("MYSQL_DATABASE", "railway"),
-        port=int(os.getenv("MYSQLPORT", 3306))
+        port=int(os.getenv("MYSQLPORT", 22023))
     )
 
 app = Flask(__name__)
