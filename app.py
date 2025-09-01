@@ -4,9 +4,16 @@ from flask_socketio import SocketIO, join_room, leave_room, emit
 import psycopg2
 
 
+import os
 
 def get_db_connection():
-    return pymysql.connect(host="localhost", user="root", password="", database="tutoring" )
+    return pymysql.connect(
+        host=os.getenv("MYSQLHOST", "mysql.railway.internal"),
+        user=os.getenv("MYSQLUSER", "root"),
+        password=os.getenv("MYSQLPASSWORD", "dWScZcMUcxnLKJQEorVERcUyWsPSQXQX"),
+        database=os.getenv("MYSQL_DATABASE", "railway"),
+        port=int(os.getenv("MYSQLPORT", 3306))
+    )
 
 app = Flask(__name__)
 app.secret_key = "your_secret_key" 
