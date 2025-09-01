@@ -1,7 +1,7 @@
 import pymysql
 from flask import Flask, render_template, request, redirect, url_for, flash, session
 from flask_socketio import SocketIO, join_room, leave_room, emit
-import psycopg2
+
 
 
 import os

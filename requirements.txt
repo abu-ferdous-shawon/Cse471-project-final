@@ -1,6 +1,5 @@
-Flask
-gunicorn
+flask
 flask-socketio
-eventlet
 pymysql
-psycopg2-binary
+gunicorn
+eventlet
