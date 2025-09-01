@@ -6,13 +6,14 @@ from flask_socketio import SocketIO, join_room, leave_room, emit
 
 import os
 
+
 def get_db_connection():
     return pymysql.connect(
-        host=os.getenv("MYSQLHOST", "gondola.proxy.rlwy.net"),
-        user=os.getenv("MYSQLUSER", "root"),
-        password=os.getenv("MYSQLPASSWORD", "dWScZcMUcxnLKJQEorVERcUyWsPSQXQX"),
-        database=os.getenv("MYSQLDATABASE", "railway"),
-        port=int(os.getenv("MYSQLPORT", 22023))
+        host=os.getenv("MYSQLHOST"),
+        user=os.getenv("MYSQLUSER"),
+        password=os.getenv("MYSQLPASSWORD"),
+        database=os.getenv("MYSQLDATABASE"),
+        port=int(os.getenv("MYSQLPORT"))
     )
 
 app = Flask(__name__)
@@ -962,9 +963,4 @@ def pay_booking(id):
 
 
 if __name__ == "__main__":
-    socketio.run(
-        app,
-        host="0.0.0.0",  # listen on all interfaces
-        port=int(os.environ.get("PORT", 5000)),  # use Render's PORT
-        debug=True
-    )
+    socketio.run(app, host="0.0.0.0", port=int(os.getenv("PORT", 5000)))
