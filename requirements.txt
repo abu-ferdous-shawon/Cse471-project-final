@@ -1,2 +1,6 @@
 Flask
 gunicorn
+flask-socketio
+eventlet
+pymysql
+psycopg2-binary
