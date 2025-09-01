@@ -962,4 +962,9 @@ def pay_booking(id):
 
 
 if __name__ == "__main__":
-    socketio.run(app, debug=True)
+    socketio.run(
+        app,
+        host="0.0.0.0",  # listen on all interfaces
+        port=int(os.environ.get("PORT", 5000)),  # use Render's PORT
+        debug=True
+    )
