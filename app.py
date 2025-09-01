@@ -11,7 +11,7 @@ def get_db_connection():
         host=os.getenv("MYSQLHOST", "gondola.proxy.rlwy.net"),
         user=os.getenv("MYSQLUSER", "root"),
         password=os.getenv("MYSQLPASSWORD", "dWScZcMUcxnLKJQEorVERcUyWsPSQXQX"),
-        database=os.getenv("MYSQL_DATABASE", "railway"),
+        database=os.getenv("MYSQLDATABASE", "railway"),
         port=int(os.getenv("MYSQLPORT", 22023))
     )
 
